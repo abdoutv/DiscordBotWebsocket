@@ -1,0 +1,15 @@
+
+<h1>Working</h1>
+<h2>{{status}}</h2>
+
+<form action="/sendMessage" method="POST">
+    <input type="text" name="message" placeholder="Message">
+
+    <select name="channelId">
+        {{#each channels}}
+            <option value="{{this.id}}">{{this.name}}</option>
+        {{/each}}
+    </select>
+
+    <input type="submit" value="Send Message">
+</form>
