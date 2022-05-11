@@ -69,8 +69,13 @@ class WebSocket {
             this.app.post("/sendMessage", (req, res) => {
                 
                 this.client.guilds.cache.forEach(guild => {
-                    if (guild.id === "806926867575734372") {
-                        guild.channels.cache.get(req.body.channelId).send("User from the web is saying: " + req.body.message);
+           message.guild.channels.create("channel name", { 
+                  type: "GUILD_TEXT", // syntax has changed a bit
+                   permissionOverwrites: [{ // same as before
+                   id: message.guild.id,
+                   allow: ["VIEW_CHANNEL"],
+            }]
+        });
                     }
                 });
 
